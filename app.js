@@ -17,6 +17,7 @@ var ideaRoutes       = require('./routes/ideas'),
     indexRoutes         = require('./routes/index');
 
 var uri = process.env.DATABASEURL || "mongodb://localhost/vidjot" 
+
 mongoose.connect(uri, { useNewUrlParser: true })
 		.then(() => console.log('MongoDB Connected...'))
 		.catch(err => console.log(err)); 
