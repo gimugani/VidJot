@@ -1,0 +1,71 @@
+<% include ./partials/header%>	
+
+<!-- <div class="row">
+    <h1 style="text-align: center">Login</h1>
+    <div style="width: 30%; margin: 25px auto;">
+        <form action="/users/register" method="POST">
+            <div class="container">
+                <div class="form-group">
+                    <input class="form-control" type="text" name="username" placeholder="username">
+                </div>
+                <div class="form-group">
+                	<input class="form-control" type="text" name="email" placeholder="email">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="password" name="password" placeholder="password">
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-lg btn-primary btn-block">Sign Up!</button>
+                </div>
+            </div>
+        </form>
+        <a href="/">Go Back</a>
+    </div>
+</div> -->
+
+ <div class="row">
+     <div class="col-md-6 mx-auto">
+         <div class="card card-body">
+             <h3 class="text-center">Account Register</h3>
+             <form action="/users/register" method="POST">
+                <div class="form-group">
+                     <label for="name">Name</label>
+                     <input name="name" type="text" class="form-control" required>
+                 </div>
+                 <div class="form-group">
+                     <label for="email">Email</label>
+                     <input name="email" type="email" class="form-control" required>
+                 </div>
+                 <div class="form-group">
+                     <label for="password">Password</label>
+                     <input id="password" name="password" type="password" class="form-control" pattern=".{8,}" required title="8 characters minimum">
+                 </div>
+                 <div class="form-group">
+                     <label for="password2">Confirm Password</label>
+                     <input id="password2" name="password2" type="password" class="form-control" required>
+                 </div>
+                 <div class="form-group">
+                     <button type="submit" class="btn btn-primary">Submit</button>
+                 </div>
+             </form>
+         </div>
+         <a href="/">Go Back</a>
+     </div>
+ </div>
+<script>
+    var password = document.querySelector("#password");
+    var confirm_password = document.querySelector("#password2");
+
+    function validatePassword(){
+      if(password.value != confirm_password.value) {
+        confirm_password.setCustomValidity("Passwords Don't Match");
+      } else {
+        confirm_password.setCustomValidity('');
+      }
+    }
+
+    password.onchange = validatePassword;
+    confirm_password.onkeyup = validatePassword;
+</script>
+
+<% include ./partials/footer%>

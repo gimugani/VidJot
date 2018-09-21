@@ -1,0 +1,21 @@
+<% include ../partials/header%>
+
+<%if (ideas.length == 0){%>
+<div class="text-center">
+	<p>No Videos Added Yet!!</p>
+</div>
+<% } %>
+
+<% ideas.forEach(function(idea){ %>
+	<!--  if(currentUser && idea.author.id.equals(currentUser._id)){    --> 
+	    <div class="card card-body mb-2">
+	    	<h4><%= idea.title %></h4>
+	    	<p><%= idea.details%></p> 
+	    	<a class="btn btn-dark btn-block mb-2" href="/ideas/<%=idea._id%>/edit">Edit</a>
+	    	<form class="delete-form" action="/ideas/<%=idea._id%>/?_method=DELETE" method="POST">
+				<input class="btn btn-block btn-danger" type="submit" value="Delete">
+	    	</form>
+	    </div>	
+<% }); %>
+<!-- }); -->
+<% include ../partials/footer%>
